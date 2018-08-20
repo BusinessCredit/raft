@@ -1,1 +1,3 @@
-# raft
+# raft algorithm
+
+raft algorithm 
