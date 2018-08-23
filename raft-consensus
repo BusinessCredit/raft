@@ -1,0 +1,21 @@
+# RAFT consensus
+## Intro
+RAFT consensus mechanism bring high transtion performance in some place that distribution network no byzantine fault tolerance requirement. For example, all miner node is pass KYC, and all verfier pass KYC also. 
+With RAFT consensus, there is a desire for faster blocktimes (on the order of milliseconds instead of seconds) and transaction finality (the absence of forking.)
+
+## Implementation basics
+Both Raft and Ethereum have their own notion of a "node":
+
+In Raft, a node in normal operation is either a "leader" or a "follower." There is a single leader for the entire cluster, which all log entries must flow through. There's also the concept of a "candidate", but only during leader election. We won't go into more detail about Raft here, because by design these details are opaque to applications built on it.
+
+In vanilla Ethereum, there is no such thing as a "leader" or "follower." It's possible for any node in the network to mine a new block -- which is akin to being the leader for that round.
+
+In Raft-based consensus, we impose a one-to-one correspondence between Raft and Ethereum nodes: each Ethereum node is also a Raft node, and by convention, the leader of the Raft cluster is the only Ethereum node that should mine (or "mint") new blocks. A minter is responsible for bundling transactions into a block just like an Ethereum miner, but does not present a proof of work.
+
+## Transaction
+
+to do
+
+## New Block
+
+to do
